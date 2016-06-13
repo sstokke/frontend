@@ -1,9 +1,9 @@
-import {Masterpage, IndexPage, LoginPage, RegistrationPage, ProfilePage } from './pages';
+import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage } from './pages';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
-import ReactStormpath, { Router, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
+import ReactStormpath, { Router, LoginRoute, HomeRoute, AuthenticatedRoute } from 'react-stormpath';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {IndexRoute, Route, } from 'react-router';
+import { IndexRoute, Route } from 'react-router';
 import createHashHistory from 'history/lib/createHashHistory';
 
 ReactStormpath.init();
