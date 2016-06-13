@@ -11,6 +11,7 @@ module.exports = {
     filename: 'app.js',
     publicPath: '/js/'
   },
+  
   module: {
   loaders: [{
     test: /\.js$/,
