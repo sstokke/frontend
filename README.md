@@ -1,4 +1,1 @@
 # frontend
-# backend
-# database
-# mobile
