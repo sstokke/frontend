@@ -1,6 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { LoginForm } from 'react-stormpath';
+import {Button, Icon, Row, Input} from 'react-materialize';
 
 export default class LoginPage extends React.Component {
   render() {
@@ -10,68 +11,31 @@ export default class LoginPage extends React.Component {
             <div>
               <h3>Login</h3>
               <hr />
-              <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="email" type="email" class="validate"/>
-                      <label for="email">Email</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="password" type="password" class="validate"/>
-                      <label for="password">Password</label>
-                    </div>
-                  </div>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                  </button>
-                </form>
+
+              <Row>
+                  <Input s={3} label="First Name" />
+                  <Input type="email" label="Email" s={3} />
+                  <Input type="password" label="Password" s={3} />
+              </Row>
+              <div>
+                <Button node='a' waves='light'><Icon right>file_cloud</Icon>login button</Button>
               </div>
 
-              <div>
-                <h3>Sign Up with Facebook</h3>
+              <Row>
+                <h3>Sign Up with Google</h3>
                 <hr />
-                <div class="row">
-                  <form class="col s12">
-                    <div class="row">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
+                <Button node='a' waves='light'><Icon right>file_cloud</Icon>Google button</Button>
+              </Row>
 
               <div>
                 <h3>Sign Up</h3>
                 <hr />
-                <div class="row">
-                  <form class="col s12">
-                    <div class="row">
-                      <div class="input-field col s6">
-                        <input placeholder="Placeholder" id="first_name" type="text" class="validate"/>
-                        <label for="first_name">First Name</label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <input id="email" type="email" class="validate"/>
-                        <label for="email">Email</label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <input id="password" type="password" class="validate"/>
-                        <label for="password">Password</label>
-                      </div>
-                    </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                      <i class="material-icons right">send</i>
-                    </button>
-                  </form>
-                </div>
+                <Row>
+                    <Input s={3} label="First Name" />
+                    <Input type="email" label="Email" s={3} />
+                    <Input type="password" label="Password" s={3} />
+                </Row>
+                <Button node='a' waves='light'><Icon right>file_cloud</Icon>Sign Up button</Button>
               </div>
             </div>
           </div>
