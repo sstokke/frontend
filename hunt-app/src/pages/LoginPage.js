@@ -1,6 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { LoginForm } from 'react-stormpath';
+import {Button, Icon} from 'react-materialize';
 
 export default class LoginPage extends React.Component {
   render() {
@@ -27,6 +28,7 @@ export default class LoginPage extends React.Component {
                   <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                   </button>
+                  <Button node='a' waves='light'><Icon right>file_cloud</Icon>button</Button>
                 </form>
               </div>
 

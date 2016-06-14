@@ -4,3 +4,30 @@ client:
     secret: pJoT2jzEaBINAFOypjXq9W7T3bMfrqw2NLtiUzvGDs4
 application:
   href: https://api.stormpath.com/v1/applications/7AgKd9sjLKbs1v3bZZr3OM
+
+
+# curl --request GET \
+#   --user 3IG568PD9P468Y5GDYZTVKSFR:xaiyt2dbakJmx3mJtQTF3WwaNPKE2hpUCSxG89ZDMR4 \
+#   --header 'content-type: application/json' \
+#   --url "https://api.stormpath.com/v1/tenants/5ByrJqN2yi8Flh8opEdbdC/applications?name=My%20Application"
+#
+#
+# Tentant ID
+# https://api.stormpath.com/v1/tenants/5ByrJqN2yi8Flh8opEdbdC
+#
+# Create New user Account
+# "href":"https://api.stormpath.com/v1/applications/5CZT7jLBVtT8GERhHdcY82"
+# "accounts":{"href":"https://api.stormpath.com/v1/applications/5CZT7jLBVtT8GERhHdcY82/accounts"
+# "loginAttempts":{"href":"https://api.stormpath.com/v1/applications/5CZT7jLBVtT8GERhHdcY82/loginAttempts"
+#
+#  curl --request POST \
+#   --user 3IG568PD9P468Y5GDYZTVKSFR:xaiyt2dbakJmx3mJtQTF3WwaNPKE2hpUCSxG89ZDMR4 \
+#   --header 'content-type: application/json' \
+#   --url "https://api.stormpath.com/v1/applications/5CZT7jLBVtT8GERhHdcY82/accounts" \
+#   --data '{
+#   "givenName": "Joe",
+#   "surname": "Stormtrooper",
+#   "username": "tk421",
+#   "email": "tk421@stormpath.com",
+#   "password":"Changeme1"
+#   }'
