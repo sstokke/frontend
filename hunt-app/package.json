@@ -21,6 +21,8 @@
     "express": "^4.13.4",
     "express-stormpath": "^3.1.2",
     "history": "^1.13.1",
+    "knex": "^0.11.5",
+    "pg": "^5.1.0",
     "react": "^15.1.0",
     "react-document-title": "^2.0.2",
     "react-dom": "^15.1.0",
