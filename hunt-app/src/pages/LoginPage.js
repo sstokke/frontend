@@ -5,7 +5,6 @@ import { LoginForm } from 'react-stormpath';
 export default class LoginPage extends React.Component {
   render() {
     return (
-
         <div>
           <div>
             <div>
