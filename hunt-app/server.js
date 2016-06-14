@@ -19,6 +19,14 @@ app.use(stormpath.init(app, {
   }
 }));
 
+app.get('/css/materialize.min.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build/css/materialize.min.css'));
+});
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build/index.html'));
+});
+
 app.post('/me', bodyParser.json(), stormpath.loginRequired, function (req, res) {
   function writeError(message) {
     res.status(400);
