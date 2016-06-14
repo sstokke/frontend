@@ -1,5 +1,4 @@
 import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage, CreateHunt } from './pages';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, LoginRoute, HomeRoute, AuthenticatedRoute } from 'react-stormpath';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,6 +12,7 @@ ReactDOM.render(
     <HomeRoute path='/' component={MasterPage}>
     <IndexRoute component={IndexPage} />
     <LoginRoute path='/login' component={LoginPage} />
+      <Route path='/createhunt' component={CreateHunt} />
     <AuthenticatedRoute>
       <HomeRoute path='/profile' component={ProfilePage} />
     </AuthenticatedRoute>
