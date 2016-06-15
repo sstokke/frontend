@@ -4,13 +4,21 @@
   border: 0;
 }
 
+.navbar {
+  background: black;
+  color: #FCFBCB;
+}
+
 h1 {
   text-align: center;
-  font-size: 575%;
-  color: blue;
+  font-size: 525%;
+  font-family: sans-serif;
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
   text-transform: uppercase;
-  letter-spacing: 1%;
-  margin: 45% 0;
+  letter-spacing: 3%;
+  margin: 15% 0;
 }
 h2 {
   text-align: center;
@@ -19,12 +27,22 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1%;
 }
+
+
 /*--- START PARALLAX ---*/
 .parallax {
   background: url('/css/party12.png');
   background-size: 100%;
 }
 
+.placeholder {
+  text-align: center;
+  font-size: 275%;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1%;
+  margin: 25% 0;
+}
 /*--- END PARALLAX ---*/
 
 
