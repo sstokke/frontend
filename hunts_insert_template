@@ -1,0 +1,20 @@
+db.hunts.insert({
+  hunt_id: ,
+  hunt_name: "",
+  date: new Date("20xx-xx-xx"),
+  start_time: "",
+  end_time: "",
+  location: "",
+  description: ""
+})
+
+
+db.hunts.insert({
+  hunt_id: 1,
+  hunt_name: "Sample Hunt 1",
+  date: new Date("2016-06-20"),
+  start_time: "3:00 PM",
+  end_time: "11:00 PM",
+  location: "Fremont",
+  description: "This is the ILLEST scaveger hunt ever to hit the streets!"
+})

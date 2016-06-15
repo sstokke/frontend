@@ -5,5 +5,6 @@ export RegistrationPage from './RegistrationPage'
 export ProfilePage from './ProfilePage'
 export CreateHunt from './CreateHunt'
 export CreateClues from './CreateClues'
+export InviteUsers from './InviteUsers'
 
 var React = require('react')
