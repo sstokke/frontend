@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 575%;
+  color: blue;
+  text-transform: uppercase;
+  letter-spacing: 1%;
+  margin: 45% 0;
+}
+h2 {
+  text-align: center;
+  font-size: 275%;
+  color: blue;
+  text-transform: uppercase;
+  letter-spacing: 1%;
+}
+/*--- START PARALLAX ---*/
+.parallax {
+  background: url('/css/party12.png');
+  background-size: 100%;
+}
+
+/*--- END PARALLAX ---*/
+
+
+.sample {
+  color: blue;
+}
+
+.title {
+
+}
+
+.labelsize {
+  color: blue;
+}

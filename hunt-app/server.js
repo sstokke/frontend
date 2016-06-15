@@ -44,6 +44,7 @@ app.get('/css/materialize.min.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/css/materialize.min.css'));
 });
 
+app.use(express.static('build'));
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/index.html'));
 });
