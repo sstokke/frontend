@@ -2,6 +2,18 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 
 export default class CreateHunt extends React.Component {
+  getHunts () {
+    $.ajax({
+      type: 'GET',
+      url: '/api/hunts',
+      datatype: 'jsonp',
+      success: function(data) {
+        // this.setState(data);
+        console.log(data);
+      }
+    })
+  };
+
   render () {
     return (
       <div className={"row"}>
@@ -11,7 +23,7 @@ export default class CreateHunt extends React.Component {
         <div className={"row"}>
           <form name="huntForm" className={"col m3"}>
             <label> Hunt Name
-            <input type="text" name="hunt_name"/>
+            <input type="text" name="hunt_name" onChange={this.getHunts}/>
             </label>
             <label> Hunt Date
             <input type="date" name="date"/>

@@ -3,12 +3,12 @@ import ReactStormpath, { Router, LoginRoute, HomeRoute, AuthenticatedRoute } fro
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
-import createHashHistory from 'history/lib/createHashHistory';
+import { createHistory}  from 'history';
 
 
 ReactStormpath.init();
 ReactDOM.render(
-  <Router history={createHashHistory()}>
+  <Router history={createHistory()}>
     <HomeRoute path='/' component={MasterPage}>
     <IndexRoute component={IndexPage} />
     <LoginRoute path='/login' component={LoginPage} />
