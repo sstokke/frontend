@@ -1,12 +1,33 @@
 var path = require('path');
 var express = require('express');
+var router = express.Router();
 var stormpath = require('express-stormpath');
 var webpack = require('webpack');
 var config = require('./webpack.config');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var app = express();
 var compiler = webpack(config);
+
+mongoose.connect('mongodb://localhost/scavenger');
+require('./models/Hunts');
+
+var db = mongoose.connection;
+var Hunt = mongoose.model('Hunt');
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we connected to the Scavenger db!")
+})
+
+app.get('/api/hunts', function(req, res) {
+  Hunt.find(function(err, hunts) {
+    if (err) { next(err); }
+
+    res.json(hunts);
+  })
+});
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
