@@ -2,7 +2,7 @@ import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage, Create
 import ReactStormpath, { Router, LoginRoute, HomeRoute, AuthenticatedRoute } from 'react-stormpath';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRoute, Route } from 'react-router';
+import { IndexRoute, Route, withRouter } from 'react-router';
 import createHashHistory from 'history/lib/createHashHistory';
 
 
