@@ -2,20 +2,18 @@ import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage, Create
 import ReactStormpath, { Router, LoginRoute, HomeRoute, AuthenticatedRoute } from 'react-stormpath';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRoute, Route } from 'react-router';
-import createHashHistory from 'history/lib/createHashHistory';
+import { IndexRoute, Route, Router } from 'react-router';
+import { createHistory } from 'history';
 
 
 ReactStormpath.init();
 ReactDOM.render(
-  <Router history={createHashHistory()}>
+  <Router history={createHistory()}>
     <HomeRoute path='/' component={MasterPage}>
     <IndexRoute component={IndexPage} />
     <LoginRoute path='/login' component={LoginPage} />
       <Route path='/createhunt' component={CreateHunt} />
-    <AuthenticatedRoute>
       <HomeRoute path='/profile' component={ProfilePage} />
-    </AuthenticatedRoute>
       <Route path='/register' component={RegistrationPage} />
     </HomeRoute>
   </Router>,
