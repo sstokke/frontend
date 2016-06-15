@@ -88,10 +88,14 @@ app.get('/css/materialize.min.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/css/materialize.min.css'));
 });
 
+<<<<<<< HEAD
 app.get('/js/materialize.min.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/materialize/js/materialize.min.js'));
 });
 
+=======
+app.use(express.static('build'));
+>>>>>>> 32a92c46451ab138b4c3b05dd0269851aa3f2122
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build/index.html'));
 });
