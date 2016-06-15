@@ -65,10 +65,6 @@ export default class CreateClues extends Component {
      });
    }
 
-   handleChange() {
-     console.log("Button clicked");
-   }
-
   render() {
     return (
       <div>
@@ -163,10 +159,6 @@ export default class CreateClues extends Component {
               </div>
             </form>
           </div>
-        </div>
-
-        <div>
-          <Button onChange={this.handleChange} waves='light'>button<Icon left>cloud</Icon></Button>
         </div>
 
         <GoogleMap
