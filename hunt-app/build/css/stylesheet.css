@@ -7,6 +7,7 @@
   background: black;
   color: #FCFBCB;
 }
+
 .banner {
   text-align: center;
   font-size: 525%;
@@ -22,13 +23,14 @@
 .btn {
   width: 20%;
 }
+
 /*--- START PARALLAX general ---*/
 .parallax {
   background: url('/css/bkg2.png');
   background-size: 100%;
 }
 .parallax-container {
-     height: 3500px;
+  height: 3500px;
 }
 .cardcolor {
   background: #FCFBCB;
