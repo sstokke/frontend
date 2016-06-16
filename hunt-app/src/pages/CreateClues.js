@@ -44,7 +44,6 @@ export default class CreateClues extends Component {
    handlePlacesChanged() {
      const places = this.refs.searchBox.getPlaces();
      const markers = [];
-     var entry = new Object();
 
 
      // Add a marker for each place returned from search bar
