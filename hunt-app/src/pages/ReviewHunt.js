@@ -83,6 +83,7 @@ export default class ReviewHunt extends React.Component {
           </div>
           <div className="col s12 m4 l9">
             <p className="flat-text-header center-align">
+
             </p>
             <p className="flat-text center-align">
             </p>
