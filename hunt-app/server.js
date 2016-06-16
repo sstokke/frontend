@@ -73,6 +73,14 @@ app.get('/api/clues', function(req, res) {
   })
 });
 
+app.get('/api/invites', function(req, res) {
+  Invite.find(function(err, invites) {
+    if (err) { next(err); }
+
+    res.json(invites);
+  })
+});
+
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
