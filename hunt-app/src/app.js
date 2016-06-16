@@ -1,4 +1,4 @@
-import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage, CreateHunt, CreateClues, InviteUsers, ReviewHunt } from './pages';
+import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage, CreateHunt, CreateClues, InviteUsers, ReviewHunt, UserHunt } from './pages';
 import ReactStormpath, { Router, LoginRoute, HomeRoute, AuthenticatedRoute } from 'react-stormpath';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -17,7 +17,8 @@ ReactDOM.render(
       <Route path='/reviewhunt' component={ReviewHunt} />
       <HomeRoute path='/profile' component={ProfilePage} />
       <Route path='/register' component={RegistrationPage} />
-      <Route path='/createclues' component={CreateClues} /> 
+      <Route path='/createclues' component={CreateClues} />
+      <Route path='/userhunt' component={UserHunt} />
     </HomeRoute>
   </Router>,
   document.getElementById('app-container')
