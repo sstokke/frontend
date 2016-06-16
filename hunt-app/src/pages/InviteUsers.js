@@ -3,33 +3,27 @@ import DocumentTitle from 'react-document-title';
 
 export default class InviteUsers extends React.Component {
 
-  callAction(action, callback) {
+  lastInvite(e) {
+    e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: '/api/users',
-      data: {
-        action: action,
-        form: $('#inviteUser').serialize()
-      },
-      success: function(response) {
-        callback (response);
-      }
-    })
+      url: '/api/invites',
+      data: $('#inviteUser').serialize()
+    });
+    $('#name').val('');
+    $('#email').val('');
+  }
+
+  inviteAnother(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/api/invites',
+      data: $('#inviteUser').serialize()
+    });
+    $('#name').val('');
+    $('#email').val('');
   };
-
-  $('#last-invite').on('click', function(e) {
-    e.preventDefault();
-    callAction('last invite'), function (response) {
-      console.log ('user was added, last invite function working')
-    }
-  });
-
-  $('#invite-another').on('click', function(e) {
-    e.preventDefault();
-    callAction('invite another'), function (response) {
-      console.log ('user was added, another will be invited')
-    }
-  });
 
   render () {
     return (
@@ -43,24 +37,24 @@ export default class InviteUsers extends React.Component {
             <div className={"row"}>
               <div className={"col m3"}>
                 <label> RSVP By:
-                  <input type="date" name="rsvp_by"/>
+                  <input id="rsvp_by" type="date" name="rsvp_by"/>
                 </label>
               </div>
             </div>
             <div className={"col m3"}>
               <label> Name
-                <input type="text" name="invite_01"/>
+                <input id="name" type="text" name="name"/>
               </label>
             </div>
             <div className={"col m3 md-offset-1"}>
               <label> Email
-                <input type="email" name="hunt_name"/>
+                <input id="email" type="email" name="email"/>
               </label>
             </div>
             <div className={"valign-wrapper"}>
-              <button id="invite-another" className={"btn invite-button"}> Invite User + Invite Another! </button>
+              <button id="invite-another" className={"btn invite-button"} onClick={this.inviteAnother}> Invite User + Invite Another! </button>
               <span className={"push-down"}> or </span>
-              <button id="last-invite" className={"btn invite-button"}> Invite User + Return to Hunt Page </button>
+              <button id="last-invite" className={"btn invite-button"} onClick={this.lastInvite}> Invite User + Return to Hunt Page </button>
             </div>
           </form>
         </div>

@@ -81,6 +81,19 @@ app.get('/api/invites', function(req, res) {
   })
 });
 
+app.post('/api/invites', function(req, res, next) {
+  console.log(req.body);
+  var name = req.body.name;
+  var email = req.body.email;
+  var rsvp_by = req.body.rsvp_by;
+
+  db.collections.invites.insert({
+    name: name,
+    email: email,
+    rsvp_by: rsvp_by
+  })
+});
+
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
