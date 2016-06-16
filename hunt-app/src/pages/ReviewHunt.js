@@ -83,7 +83,7 @@ export default class ReviewHunt extends React.Component {
               <Col l={9} m={8} s={12}>
               <Card className='large'
                 header={<CardTitle image='/css/party2.jpeg'>{this.state.name}</CardTitle>} // insert map picture here
-                actions={[<a href='#'>Edit General Info</a>]}>
+                actions={[<a href='#'>Edit Clues/Locations</a>]}>
                 <div>Date: {this.state.data[0].date} </div>
                 <div>Starting Time: {this.state.data[0].start_time} </div>
                 <div>Ending Time: {this.state.data[0].end_time} </div>
@@ -98,7 +98,7 @@ export default class ReviewHunt extends React.Component {
                 <Col l={9} m={8} s={12}>
                 <Card className='large'
                   header={<CardTitle image='/css/party2.jpeg'>{this.state.name}</CardTitle>} // insert map picture here
-                  actions={[<a href='#'>Edit General Info</a>]}>
+                  actions={[<a href='#'>Edit Invites</a>]}>
                   <div>Date: {this.state.data[0].date} </div>
                   <div>Starting Time: {this.state.data[0].start_time} </div>
                   <div>Ending Time: {this.state.data[0].end_time} </div>
