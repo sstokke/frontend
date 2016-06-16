@@ -6,7 +6,7 @@ import {Button, Icon, Row, Input, Col, Card, CardTitle, Navbar, NavItem} from 'r
 export default class Header extends React.Component {
   render() {
     return (
-      <Navbar brand="logo" left>
+      <Navbar brand="logo" className="black" left>
         <Authenticated>
           <NavItem href='/profile'> Profile </NavItem>
           <NavItem href='/createhunt'> Create Hunt </NavItem>
