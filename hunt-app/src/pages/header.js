@@ -22,10 +22,10 @@ export default class Header extends React.Component {
             <ul className="nav navbar-nav navbar-right">
             <NotAuthenticated>
               <li>
-                <LoginLink />
+                <Link to="/login">Login</Link>
               </li>
               <li>
-                <Link to="/register">Create Account</Link>
+                <Link to="/register">Sign Up</Link>
               </li>
             </NotAuthenticated>
             </ul>
