@@ -1,7 +1,9 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
+import { Link } from 'react-router';
 
 export default class InviteUsers extends React.Component {
+
 
   lastInvite(e) {
     e.preventDefault();
@@ -13,17 +15,6 @@ export default class InviteUsers extends React.Component {
     $('#name').val('');
     $('#email').val('');
   }
-
-  inviteAnother(e) {
-    e.preventDefault();
-    $.ajax({
-      type: 'POST',
-      url: '/api/invites',
-      data: $('#inviteUser').serialize()
-    });
-    $('#name').val('');
-    $('#email').val('');
-  };
 
   render () {
     return (
@@ -53,9 +44,11 @@ export default class InviteUsers extends React.Component {
               </label>
             </div>
             <div>
-              <button id="invite-another" className={"btn invite-button"} onClick={this.inviteAnother}> Invite User + Invite Another! </button>
+              <button className={"btn invite-button"} onClick={this.inviteUser}> Invite User </button>
               <span className={"push-down"}> or </span>
-              <button id="last-invite" className={"btn invite-button"} onClick={this.lastInvite}> Invite User + Return to Hunt Page </button>
+              <Link to='/reviewhunt'>
+                <button className={"btn invite-button"}> Return to Hunt Page </button>
+              </Link>
             </div>
           </form>
         </div>
