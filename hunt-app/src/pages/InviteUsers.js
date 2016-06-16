@@ -22,45 +22,41 @@ export default class InviteUsers extends React.Component {
         <div>
           <h2> Invites </h2>
         </div>
+        <Row>
+          <Col m={6} s={12} class="auth-form">
+            <Card>
+              <h3> Send Invite </h3>
+              <h6 className={"invite-subhead"}> for "hunt name goes here" </h6>
+              <hr />
+              <form id="inviteUser">
+                <Input m={12} label="Name" id="name" type="text"/>
+                <Input m={12} label="Email" id="email" type="text" />
 
+                <Col m={3}>
+                  <label> RSVP By:
+                    <input id="rsvp_by" type="date" name="rsvp_by" />
+                  </label>
+                </Col>
 
-        <Card>
-          <h4 className={"red-text"}> Invite Users </h4>
-          <h6 className={"invite-subhead"}> for "hunt name goes here" </h6>
+                <div>
+                  <button className={"btn invite-button"} onClick={this.inviteUser}> Invite User </button>
+                  <span className={"push-down"}> or </span>
+                  <Link to='/reviewhunt'>
+                    <button className={"btn invite-button"}> Return to Hunt Page </button>
+                  </Link>
+                </div>
+              </form>
+            </Card>
+          </Col>
 
-          <form id="inviteUser">
+          <Col m={6} s={12} class="auth-form">
+            <Card>
+              <h3> Invited Users </h3>
+              <hr />
 
-            <Col m={3}>
-              <label> RSVP By:
-                <input id="rsvp_by" type="date" name="rsvp_by" />
-              </label>
-              <label> Name
-                <input id="name" type="text" name="name" />
-              </label>
-            </Col>
-
-
-            <Row>
-              <Col m={3}>
-                <label> Email
-                  <input id="email" type="text" name="email" />
-                </label>
-              </Col>              
-            </Row>
-
-
-            <div>
-              <button className={"btn invite-button"} onClick={this.inviteUser}> Invite User </button>
-              <span className={"push-down"}> or </span>
-              <Link to='/reviewhunt'>
-                <button className={"btn invite-button"}> Return to Hunt Page </button>
-              </Link>
-            </div>
-          </form>
-
-
-        </Card>
-          <h3> Invited Users </h3>
+            </Card>
+          </Col>
+        </Row>
       </Row>
     )
   };
