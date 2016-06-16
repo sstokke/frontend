@@ -51,7 +51,7 @@ export default class InviteUsers extends React.Component {
                 <input id="email" type="email" name="email"/>
               </label>
             </div>
-            <div className={"valign-wrapper"}>
+            <div>
               <button id="invite-another" className={"btn invite-button"} onClick={this.inviteAnother}> Invite User + Invite Another! </button>
               <span className={"push-down"}> or </span>
               <button id="last-invite" className={"btn invite-button"} onClick={this.lastInvite}> Invite User + Return to Hunt Page </button>
