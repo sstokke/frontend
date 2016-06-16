@@ -21,12 +21,6 @@ export default class LoginPage extends React.Component {
                 <Button node='a' waves='light'><Icon right>file_cloud</Icon>login button</Button>
               </div>
 
-              <Row>
-                <h3>Sign Up with Google</h3>
-                <hr />
-                <Button node='a' waves='light'><Icon right>file_cloud</Icon>Google button</Button>
-              </Row>
-
               <div>
                 <h3>Sign Up</h3>
                 <hr />
