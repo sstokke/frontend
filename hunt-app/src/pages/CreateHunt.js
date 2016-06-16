@@ -12,7 +12,6 @@ export default class CreateHunt extends React.Component {
      });
    };
 
-
   render () {
     return (
       <div className={"row"}>
