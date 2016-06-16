@@ -54,7 +54,6 @@ export default class CreateClues extends Component {
        console.log("Name: " + place.name);
      });
 
-      answerName.push(places[0].name);
 
      // Set markers; set map center to first search result
      const mapCenter = markers.length > 0 ? markers[0].position : this.state.center;
