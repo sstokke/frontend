@@ -2,6 +2,7 @@ import { default as React, Component } from "react";
 import { GoogleMap, Marker, SearchBox } from "react-google-maps";
 import DocumentTitle from 'react-document-title';
 import {Button, Icon, Row, Input} from 'react-materialize';
+import { Link } from 'react-router';
 
 // !!Need to retrieve Hunt ID and then update Hunt ID with clue data upon completion of form
 
@@ -102,7 +103,9 @@ export default class CreateClues extends Component {
               <div className={"row"}>
                 <button className={"btn invite-button"} onClick={this.addClue}> Add Another Clue </button>
                 <span> or </span>
-                <button className={"btn invite-button"} onClick={this.returnToHunt}> Return to Hunt Page </button>
+                <Link to='/reviewhunt'>
+                  <button className={"btn invite-button"}> Return to Hunt Page </button>
+                </Link>
               </div>
             </form>
           </div>

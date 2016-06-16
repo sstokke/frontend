@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import DocumentTitle from 'react-document-title';
 
 export default class CreateHunt extends React.Component {
@@ -38,7 +38,7 @@ export default class CreateHunt extends React.Component {
             <label> Description
             <input type="text" name="description"/>
             </label>
-            <button> Submit </button>
+            <button className={"btn-large"}> Create Your Hunt! </button>
           </form>
         </div>
       </div>
