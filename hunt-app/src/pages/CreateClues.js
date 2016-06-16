@@ -83,6 +83,11 @@ export default class CreateClues extends Component {
                   <input type="text" name="answer01"/>
                 </label>
               </div>
+              <div className={"row"}>
+                <button className={"btn invite-button"} onClick={this.addClue}> Add Another Clue </button>
+                <span}> or </span>
+                <button id="last-invite" className={"btn invite-button"} onClick={this.addClueandFinish}> Return to Hunt Page </button>
+              </div>
             </form>
           </div>
         </div>
