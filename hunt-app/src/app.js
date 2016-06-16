@@ -11,13 +11,11 @@ ReactStormpath.init();
 ReactDOM.render(
   <Router history={createHistory()}>
     <HomeRoute path='/' component={MasterPage}>
-    <IndexRoute component={IndexPage} />
     <LoginRoute path='/login' component={LoginPage} />
       <Route path='/createhunt' component={CreateHunt} />
       <Route path='/reviewhunt' component={ReviewHunt} />
       <HomeRoute path='/profile' component={ProfilePage} />
-      <Route path='/register' component={RegistrationPage} />
-      <Route path='/createclues' component={CreateClues} /> 
+      <Route path='/createclues' component={CreateClues} />
     </HomeRoute>
   </Router>,
   document.getElementById('app-container')
