@@ -44,6 +44,10 @@ export default class CreateClues extends Component {
    handlePlacesChanged() {
      const places = this.refs.searchBox.getPlaces();
      const markers = [];
+     var boundLatLow;
+     var boundLatHigh;
+     var boundLngLow;
+     var boundLngHigh;
 
      // Add a marker for each place returned from search bar
      places.forEach(function (place) {
@@ -53,7 +57,20 @@ export default class CreateClues extends Component {
        console.log("Lat: " + place.geometry.location.lat());
        console.log("Lng: " + place.geometry.location.lng());
        console.log("Name: " + place.name);
+       console.log(place);
      });
+
+     this.setState({
+       bounds: this.refs.map.getBounds(),
+     });
+     boundLatLow = this.refs.map.getBounds().H.H;
+     boundLatHigh = this.refs.map.getBounds().H.j;
+     console.log("Low: " + boundLatLow);
+     console.log("High: " + boundLatHigh);
+     boundLngLow = this.refs.map.getBounds().j.j;
+     boundLngHigh = this.refs.map.getBounds().j.H;
+     console.log("Low: " + boundLngLow);
+     console.log("High: " + boundLngHigh);
 
      // Set markers; set map center to first search result
      const mapCenter = markers.length > 0 ? markers[0].position : this.state.center;
