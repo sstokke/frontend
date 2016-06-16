@@ -4,8 +4,7 @@ import { Link } from 'react-router';
 
 export default class InviteUsers extends React.Component {
 
-
-  lastInvite(e) {
+  inviteUser(e) {
     e.preventDefault();
     $.ajax({
       type: 'POST',
@@ -14,7 +13,7 @@ export default class InviteUsers extends React.Component {
     });
     $('#name').val('');
     $('#email').val('');
-  }
+  };
 
   render () {
     return (
