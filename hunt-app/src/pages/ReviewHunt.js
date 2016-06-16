@@ -12,6 +12,17 @@ export default class ReviewHunt extends React.Component {
     name: ""
   };
 
+  componentDidMount(){
+    $.ajax({
+      type: 'GET',
+      url: '/api/hunts',
+      datatype: 'jsonp',
+      success: data => {
+        this.setState({data: data, page: 'hunts', name: data[0].hunt_name});
+      }
+    })
+  };
+
   getGeneral (e) {
     e.preventDefault();
     $.ajax({
