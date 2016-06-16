@@ -12,33 +12,16 @@ export default class CreateHunt extends React.Component {
      });
    };
 
-   state = {
-     data: [{}]
-   };
-
-   getHunts () {
-     $.ajax({
-       type: 'GET',
-       url: '/api/hunts',
-       datatype: 'jsonp',
-       success: data => {
-         this.setState({data: data});
-         console.log(data);
-       }
-     })
-   };
-
   render () {
     return (
       <div className={"row"}>
-        {this.state.data[0].hunt_name}
         <div>
           <h4 className={"blue-text"}> Create a Scavenger Hunt </h4>
         </div>
         <div className={"row"}>
           <form id="huntForm" className={"col m3"} onSubmit={this.onSubmit} method="post">
             <label> Hunt Name
-            <input type="text" name="hunt_name" onChange={this.getHunts.bind(this)}/>
+            <input type="text" name="hunt_name" />
             </label>
             <label> Hunt Date
             <input type="date" name="date"/>
@@ -55,7 +38,7 @@ export default class CreateHunt extends React.Component {
             <label> Description
             <input type="text" name="description"/>
             </label>
-            <button> Submit </button>
+            <button className={"btn-large"}> Create Your Hunt! </button>
           </form>
         </div>
       </div>

@@ -1,45 +1,37 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { LoginForm } from 'react-stormpath';
-import {Button, Icon, Row, Input} from 'react-materialize';
+import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
 
 export default class LoginPage extends React.Component {
   render() {
     return (
-        <div>
-          <div>
+      <Row>
+        <Col m={6} s={12} class="auth-form">
+          <Card>
+            <h3>Login</h3>
+            <hr />
+            <Input m={12} label="First Name" />
+            <Input m={12} type="email" label="Email" />
+            <Input m={12} type="password" label="Password" />
             <div>
-              <h3>Login</h3>
-              <hr />
-
-              <Row>
-                  <Input s={3} label="First Name" />
-                  <Input type="email" label="Email" s={3} />
-                  <Input type="password" label="Password" s={3} />
-              </Row>
-              <div>
-                <Button node='a' waves='light'><Icon right>file_cloud</Icon>login button</Button>
-              </div>
-
-              <Row>
-                <h3>Sign Up with Google</h3>
-                <hr />
-                <Button node='a' waves='light'><Icon right>file_cloud</Icon>Google button</Button>
-              </Row>
-
-              <div>
-                <h3>Sign Up</h3>
-                <hr />
-                <Row>
-                    <Input s={3} label="First Name" />
-                    <Input type="email" label="Email" s={3} />
-                    <Input type="password" label="Password" s={3} />
-                </Row>
-                <Button node='a' waves='light'><Icon right>file_cloud</Icon>Sign Up button</Button>
-              </div>
+              <Button node='a' waves='light'><Icon right>file_cloud</Icon>login button</Button>
             </div>
-          </div>
-        </div>
+          </Card>
+        </Col>
+        <Col m={6} s={12} class="auth-form">
+          <Card>
+            <h3>Sign Up</h3>
+            <hr />
+            <Input m={12} label="First Name" />
+            <Input m={12} type="email" label="Email" />
+            <Input m={12} type="password" label="Password" />
+            <div>
+              <Button node='a' waves='light'><Icon right>file_cloud</Icon>Sign Up button</Button>
+            </div>
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }

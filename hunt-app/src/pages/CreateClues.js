@@ -2,6 +2,7 @@ import { default as React, Component } from "react";
 import { GoogleMap, Marker, SearchBox } from "react-google-maps";
 import DocumentTitle from 'react-document-title';
 import {Button, Icon, Row, Input} from 'react-materialize';
+import { Link } from 'react-router';
 
 // !!Need to retrieve Hunt ID and then update Hunt ID with clue data upon completion of form
 
@@ -80,6 +81,21 @@ export default class CreateClues extends Component {
      });
    }
 
+   addClue(e) {
+     e.preventDefault();
+     $.ajax({
+       type: 'POST',
+       url: '/api/clues',
+       data: $('#clueForm').serialize()
+     });
+     $('#clue').val('');
+     $('#location').val('');
+   }
+
+   returnToHunt(e) {
+     e.preventDefault();
+   };
+
   render() {
     return (
       <div>
@@ -91,86 +107,22 @@ export default class CreateClues extends Component {
             <h5> Your Scavenger Hunt: (pull hunt name) </h5>
           </div>
           <div className={"col m10"}>
-            <form>
+            <form id="clueForm">
               <div className={"row"}>
+                <input type="hidden" name="hunt_id" value="1"/>
                 <label className={"col m6 labelsize"}> Clue #1
-                  <input type="text" name="clue01"/>
+                  <input id="clue" type="text" name="clue"/>
                 </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer01"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #2
-                  <input type="text" name="clue02"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer02"/>
+                <label className={"col m4 offset-m1"}> Answer/Location
+                  <input id="location" type="text" name="location"/>
                 </label>
               </div>
               <div className={"row"}>
-                <label className={"col m6"}> Clue #3
-                  <input type="text" name="clue03"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer03"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #4
-                  <input type="text" name="clue04"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer04"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #5
-                  <input type="text" name="clue05"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer05"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #6
-                  <input type="text" name="clue06"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer06"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #7
-                  <input type="text" name="clue07"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer07"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #8
-                  <input type="text" name="clue08"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer08"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #9
-                  <input type="text" name="clue09"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer09"/>
-                </label>
-              </div>
-              <div className={"row"}>
-                <label className={"col m6"}> Clue #10
-                  <input type="text" name="clue10"/>
-                </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer10"/>
-                </label>
+                <button className={"btn invite-button"} onClick={this.addClue}> Add Another Clue </button>
+                <span> or </span>
+                <Link to='/reviewhunt'>
+                  <button className={"btn invite-button"}> Return to Hunt Page </button>
+                </Link>
               </div>
             </form>
           </div>

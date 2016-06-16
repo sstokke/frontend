@@ -6,12 +6,10 @@ import { IndexRoute, Route } from 'react-router';
 import { createHistory}  from 'history';
 
 
-
 ReactStormpath.init();
 ReactDOM.render(
   <Router history={createHistory()}>
     <HomeRoute path='/' component={MasterPage}>
-    <IndexRoute component={IndexPage} />
     <LoginRoute path='/login' component={LoginPage} />
       <Route path='/createhunt' component={CreateHunt} />
       <Route path='/reviewhunt' component={ReviewHunt} />
@@ -19,6 +17,7 @@ ReactDOM.render(
       <Route path='/register' component={RegistrationPage} />
       <Route path='/createclues' component={CreateClues} />
       <Route path='/userhunt' component={UserHunt} />
+      <Route path='/inviteusers' component={InviteUsers} />
     </HomeRoute>
   </Router>,
   document.getElementById('app-container')

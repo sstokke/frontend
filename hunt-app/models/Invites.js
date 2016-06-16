@@ -6,6 +6,7 @@ var inviteSchema = new Schema ({
   invite_id: Number,
   hunt_id: Number,
   user_id: Number,
+  name: String,
   email: String,
   rsvp_by: Date,
   rsvp_status: String
