@@ -8,7 +8,6 @@
   color: #FCFBCB;
 }
 
-
 .banner {
   text-align: center;
   font-size: 525%;
@@ -22,7 +21,7 @@
 }
 
 .btn {
-  width: 20%;
+  width: 50%;
 }
 
 /*--- START PARALLAX general ---*/

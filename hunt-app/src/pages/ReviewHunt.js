@@ -3,39 +3,13 @@ import DocumentTitle from 'react-document-title';
 import { If, Then, Else } from 'react-if';
 import {Button, Icon, Row, Input, Col, Card, CardTitle, Navbar} from 'react-materialize';
 
-// class Detail extends React.Component {
-//   render() {
-//     return (
-//       <div className="huntName">
-//         <h2 className="huntDate">
-//           {this.props.hunt_name}
-//         </h2>
-//       </div>
-//     )
-//   }
-// }
-//
-// return(
-//   <div>
-//   {this.state.data[0].hunt_name}
-//   <input type="text" name="hunt_name" onChange={this.getHunts.bind(this)}/>
-//   </div>
-
-// {this.state.data[0].hunt_name}
-// {this.state.data[0].location}
-// {this.state.data[0].email}
-
-// {this.state.data[0].hunt_name}
-// {this.state.data[0].date}
-// {this.state.data[0].start_time}
-// {this.state.data[0].end_time}
-// {this.state.data[0].location}
-// {this.state.data[0].description}
-
 export default class ReviewHunt extends React.Component {
 
+
   state = {
-    data: [{}]
+    data: [{}],
+    page: "",
+    name: ""
   };
 
   getGeneral (e) {
@@ -45,7 +19,7 @@ export default class ReviewHunt extends React.Component {
       url: '/api/hunts',
       datatype: 'jsonp',
       success: data => {
-        this.setState({data: data});
+        this.setState({data: data, page: 'hunts', name: data[0].hunt_name});
         console.log(data);
       }
     })
@@ -57,7 +31,7 @@ export default class ReviewHunt extends React.Component {
       url: '/api/clues',
       datatype: 'jsonp',
       success: data => {
-        this.setState({data: data});
+        this.setState({data: data, page: 'clues'});
         console.log(data);
       }
     })
@@ -69,7 +43,7 @@ export default class ReviewHunt extends React.Component {
       url: '/api/invites',
       datatype: 'jsonp',
       success: data => {
-        this.setState({data: data});
+        this.setState({data: data, page: 'invites'});
         console.log(data);
       }
     })
@@ -89,7 +63,7 @@ export default class ReviewHunt extends React.Component {
             <div className="card-panel teal lighten-2 waves-effect waves-light btn-large center-align" onClick={this.getClues.bind(this)}>Clues and Locations</div>
             <div className="card-panel teal lighten-2 waves-effect waves-light btn-large center-align" onClick={this.getInvites.bind(this)}>Invites</div>
           </Col>
-          <If condition={ this.state.data[0].hunt_name }>
+          <If condition={ this.state.page === 'hunts' }>
           <Then>
             <Col l={9} m={8} s={12}>
             <Card className='large'
@@ -104,6 +78,37 @@ export default class ReviewHunt extends React.Component {
             </Col>
               </Then>
             </If>
+            <If condition={ this.state.page === 'clues' }>
+            <Then>
+              <Col l={9} m={8} s={12}>
+              <Card className='large'
+                header={<CardTitle image='/css/party2.jpeg'>{this.state.name}</CardTitle>} // insert map picture here
+                actions={[<a href='#'>Edit General Info</a>]}>
+                <div>Date: {this.state.data[0].date} </div>
+                <div>Starting Time: {this.state.data[0].start_time} </div>
+                <div>Ending Time: {this.state.data[0].end_time} </div>
+                <div>General Location: {this.state.data[0].location} </div>
+                <div>Description: {this.state.data[0].description} </div>
+              </Card>
+              </Col>
+                </Then>
+              </If>
+              <If condition={ this.state.page === 'invites' }>
+              <Then>
+                <Col l={9} m={8} s={12}>
+                <Card className='large'
+                  header={<CardTitle image='/css/party2.jpeg'>{this.state.name}</CardTitle>} // insert map picture here
+                  actions={[<a href='#'>Edit General Info</a>]}>
+                  <div>Date: {this.state.data[0].date} </div>
+                  <div>Starting Time: {this.state.data[0].start_time} </div>
+                  <div>Ending Time: {this.state.data[0].end_time} </div>
+                  <div>General Location: {this.state.data[0].location} </div>
+                  <div>Description: {this.state.data[0].description} </div>
+                </Card>
+                </Col>
+                  </Then>
+                </If>
+
         </Row>
       </div>
     );
