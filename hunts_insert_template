@@ -8,7 +8,6 @@ db.hunts.insert({
   description: ""
 })
 
-
 db.hunts.insert({
   hunt_id: 1,
   hunt_name: "Sample Hunt 1",
@@ -17,4 +16,14 @@ db.hunts.insert({
   end_time: "11:00 PM",
   location: "Fremont",
   description: "This is the ILLEST scaveger hunt ever to hit the streets!"
+})
+
+db.hunts.insert({
+  hunt_id: 2,
+  hunt_name: "Sample Hunt 2",
+  date: new Date("2016-06-20"),
+  start_time: "5:00 PM",
+  end_time: "11:00 PM",
+  location: "Ballard",
+  description: "This is the second ILLEST scaveger hunt ever to hit the streets!"
 })
