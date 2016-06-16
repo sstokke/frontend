@@ -32,7 +32,7 @@ export default class InviteUsers extends React.Component {
                 <Input m={12} label="Name" id="name" type="text"/>
                 <Input m={12} label="Email" id="email" type="text" />
 
-                <Col m={3}>
+                <Col m={12}>
                   <label> RSVP By:
                     <input id="rsvp_by" type="date" name="rsvp_by" />
                   </label>
