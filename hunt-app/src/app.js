@@ -16,6 +16,7 @@ ReactDOM.render(
       <Route path='/reviewhunt' component={ReviewHunt} />
       <HomeRoute path='/profile' component={ProfilePage} />
       <Route path='/createclues' component={CreateClues} />
+      <Route path='/inviteusers' component={InviteUsers} />
     </HomeRoute>
   </Router>,
   document.getElementById('app-container')
