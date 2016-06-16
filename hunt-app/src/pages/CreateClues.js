@@ -63,6 +63,21 @@ export default class CreateClues extends Component {
      });
    }
 
+   addClue(e) {
+     e.preventDefault();
+     $.ajax({
+       type: 'POST',
+       url: '/api/clues',
+       data: $('#clueForm').serialize()
+     });
+     $('#clue').val('');
+     $('#location').val('');
+   }
+
+   returnToHunt(e) {
+     e.preventDefault();
+   };
+
   render() {
     return (
       <div>
@@ -74,19 +89,20 @@ export default class CreateClues extends Component {
             <h5> Your Scavenger Hunt: (pull hunt name) </h5>
           </div>
           <div className={"col m10"}>
-            <form>
+            <form id="clueForm">
               <div className={"row"}>
+                <input type="hidden" name="hunt_id" value="1"/>
                 <label className={"col m6 labelsize"}> Clue #1
-                  <input type="text" name="clue01"/>
+                  <input id="clue" type="text" name="clue"/>
                 </label>
-                <label className={"col m4 offset-m1"}> Answer
-                  <input type="text" name="answer01"/>
+                <label className={"col m4 offset-m1"}> Answer/Location
+                  <input id="location" type="text" name="location"/>
                 </label>
               </div>
               <div className={"row"}>
                 <button className={"btn invite-button"} onClick={this.addClue}> Add Another Clue </button>
-                <span}> or </span>
-                <button id="last-invite" className={"btn invite-button"} onClick={this.addClueandFinish}> Return to Hunt Page </button>
+                <span> or </span>
+                <button className={"btn invite-button"} onClick={this.returnToHunt}> Return to Hunt Page </button>
               </div>
             </form>
           </div>

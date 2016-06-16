@@ -34,6 +34,7 @@ export default class InviteUsers extends React.Component {
         </div>
         <div className={"row"}>
           <form id="inviteUser">
+            <input type="hidden" name="hunt_id" value="1"/>
             <div className={"row"}>
               <div className={"col m3"}>
                 <label> RSVP By:
