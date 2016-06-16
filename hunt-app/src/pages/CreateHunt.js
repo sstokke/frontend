@@ -3,22 +3,30 @@ import DocumentTitle from 'react-document-title';
 
 export default class CreateHunt extends React.Component {
 
-  state = {
-    data: [{}]
-  }
+  onSubmit (e) {
+     e.preventDefault();
+     $.ajax({
+       type: 'POST',
+       url: '/api/hunts',
+       data: $('#huntForm').serialize()
+     });
+   };
 
-  getHunts () {
-    $.ajax({
-      type: 'POST',
-      url: '/api/hunts',
-      datatype: 'jsonp',
-      success: data => {
-        this.setState({data: data});
-        console.log(data);
-      }
-    })
-      data: $('#huntForm').serialize()
-  };
+   state = {
+     data: [{}]
+   };
+
+   getHunts () {
+     $.ajax({
+       type: 'GET',
+       url: '/api/hunts',
+       datatype: 'jsonp',
+       success: data => {
+         this.setState({data: data});
+         console.log(data);
+       }
+     })
+   };
 
   render () {
     return (
