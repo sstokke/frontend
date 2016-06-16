@@ -11,7 +11,6 @@ ReactStormpath.init();
 ReactDOM.render(
   <Router history={createHistory()}>
     <HomeRoute path='/' component={MasterPage}>
-    <IndexRoute component={IndexPage} />
     <LoginRoute path='/login' component={LoginPage} />
       <Route path='/createhunt' component={CreateHunt} />
       <Route path='/reviewhunt' component={ReviewHunt} />
