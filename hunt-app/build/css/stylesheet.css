@@ -87,3 +87,28 @@
 	display: block;
 }
 /*--- END PARALLAX scroll banner ---*/
+
+/*--- Begin Invite Users Styles ---*/
+
+.invite-subhead {
+  margin-left: 0.5em;
+  margin-bottom: 2em;
+  font-weight: bold;
+}
+
+.invite-button {
+  font-size: 12px;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  margin-top: 2em;
+}
+
+.push-down {
+  margin-top: 2em;
+  font-style: italic;
+}
+
+.push-further {
+  margin-top: 4em;
+  font-style: italic;
+}

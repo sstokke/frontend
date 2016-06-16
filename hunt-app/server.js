@@ -73,11 +73,39 @@ app.get('/api/clues', function(req, res) {
   })
 });
 
+app.post('/api/clues', function(req, res, next) {
+  console.log(req.body);
+  var hunt_id = req.body.hunt_id;
+  var clue = req.body.clue;
+  var location = req.body.location;
+
+  db.collections.clues.insert({
+    hunt_id: hunt_id,
+    clue: clue,
+    location: location
+  })
+});
+
 app.get('/api/invites', function(req, res) {
   Invite.find(function(err, invites) {
     if (err) { next(err); }
 
     res.json(invites);
+  })
+});
+
+app.post('/api/invites', function(req, res, next) {
+  console.log(req.body);
+  var hunt_id = req.body.hunt_id;
+  var name = req.body.name;
+  var email = req.body.email;
+  var rsvp_by = req.body.rsvp_by;
+
+  db.collections.invites.insert({
+    hunt_id: hunt_id,
+    name: name,
+    email: email,
+    rsvp_by: rsvp_by
   })
 });
 
