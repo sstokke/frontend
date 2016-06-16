@@ -1,5 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
+import { If, Then, Else } from 'react-if';
+import {Button, Icon, Row, Input, Col, Card, CardTitle, Navbar} from 'react-materialize';
 
 // class Detail extends React.Component {
 //   render() {
@@ -19,6 +21,16 @@ import DocumentTitle from 'react-document-title';
 //   <input type="text" name="hunt_name" onChange={this.getHunts.bind(this)}/>
 //   </div>
 
+// {this.state.data[0].hunt_name}
+// {this.state.data[0].location}
+// {this.state.data[0].email}
+
+// {this.state.data[0].hunt_name}
+// {this.state.data[0].date}
+// {this.state.data[0].start_time}
+// {this.state.data[0].end_time}
+// {this.state.data[0].location}
+// {this.state.data[0].description}
 
 export default class ReviewHunt extends React.Component {
 
@@ -62,6 +74,7 @@ export default class ReviewHunt extends React.Component {
       }
     })
   };
+
   render() {
     return (
       <div className="content">
@@ -70,29 +83,28 @@ export default class ReviewHunt extends React.Component {
           <p className="brand-logo center">Review Your Hunt</p>
         </div>
       </nav>
-        <div className="row">
-          <div className="col s12 m4 l3">
-          <nav>
-            <div className="nav-wrapper">
-              <p className="brand-logo center">Hunt Details</p>
-            </div>
-          </nav>
+        <Row>
+          <Col l={3} m={4} s={12}>
             <div className="card-panel teal lighten-2 waves-effect waves-light btn-large center-align" onClick={this.getGeneral.bind(this)} >General Information</div>
             <div className="card-panel teal lighten-2 waves-effect waves-light btn-large center-align" onClick={this.getClues.bind(this)}>Clues and Locations</div>
             <div className="card-panel teal lighten-2 waves-effect waves-light btn-large center-align" onClick={this.getInvites.bind(this)}>Invites</div>
-          </div>
-          <div className="col s12 m4 l9">
-            <p className="flat-text-header center-align">
-
-            </p>
-            <p className="flat-text center-align">
-            </p>
-            <p className="flat-text center-align">
-            </p>
-            <p className="flat-text center-align">
-            </p>
-          </div>
-        </div>
+          </Col>
+          <If condition={ this.state.data[0].hunt_name }>
+          <Then>
+            <Col l={9} m={8} s={12}>
+            <Card className='large'
+              header={<CardTitle image='/css/party2.jpeg'>{this.state.data[0].hunt_name}</CardTitle>}
+              actions={[<a href='#'>Edit General Info</a>]}>
+              <div>Date: {this.state.data[0].date} </div>
+              <div>Starting Time: {this.state.data[0].start_time} </div>
+              <div>Ending Time: {this.state.data[0].end_time} </div>
+              <div>General Location: {this.state.data[0].location} </div>
+              <div>Description: {this.state.data[0].description} </div>
+            </Card>
+            </Col>
+              </Then>
+            </If>
+        </Row>
       </div>
     );
   }

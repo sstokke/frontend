@@ -6,7 +6,6 @@ import { IndexRoute, Route } from 'react-router';
 import { createHistory}  from 'history';
 
 
-
 ReactStormpath.init();
 ReactDOM.render(
   <Router history={createHistory()}>
