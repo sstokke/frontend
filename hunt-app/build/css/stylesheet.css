@@ -35,6 +35,18 @@ h2 {
   background-size: 100%;
 }
 
+.parallax-container {
+     height: 750px;
+}
+
+.cardcolor {
+  background: #FCFBCB;
+}
+
+.banner-centered {
+  padding-top: 5%;
+}
+
 .placeholder {
   text-align: center;
   font-size: 275%;
