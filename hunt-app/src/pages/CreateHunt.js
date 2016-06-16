@@ -18,7 +18,6 @@ export default class CreateHunt extends React.Component {
       }
     })
       data: $('#huntForm').serialize()
-    });
   };
 
   render () {
