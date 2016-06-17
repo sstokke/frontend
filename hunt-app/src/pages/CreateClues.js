@@ -157,7 +157,7 @@ export default class CreateClues extends Component {
             <h3> Create Your Clues! </h3>
           </div>
           <div className={"row"}>
-            <h5> Your Scavenger Hunt: (pull hunt name) </h5>
+            <h5> Your Scavenger Hunt: "Adrienne's Birthday Scavenger Hunt" </h5>
           </div>
           <div className={"col m10"}>
             <form id="clueForm">

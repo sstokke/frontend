@@ -30,11 +30,23 @@
 
 /*--- START PARALLAX general ---*/
 .parallax {
-  background: url('/css/bkg2.png');
+  background: url('/css/group1.jpg');
+  background-size: 100%;
+}
+.parallax2 {
+  background: url('/css/carlady.jpeg');
+  background-size: 100%;
+}
+.parallax3 {
+  background: url('/css/party13.jpg');
+  background-size: 100%;
+}
+.parallax4 {
+  background: url('/css/ladies.jpg');
   background-size: 100%;
 }
 .parallax-container {
-  height: 2900px;
+  height: 600px;
 }
 
 @media only screen and (max-width : 992px) {
