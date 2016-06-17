@@ -10,7 +10,6 @@ export default class ReviewHunt extends React.Component {
     data: [{}],
     page: "",
     name: "",
-    len: "",
   };
 
   componentDidMount(){
@@ -19,7 +18,7 @@ export default class ReviewHunt extends React.Component {
       url: '/api/hunts/',
       datatype: 'jsonp',
       success: data => {
-        this.setState({data: data, page: 'hunts', name: data[0].hunt_name, len: data.length-1});
+        this.setState({data: data, page: 'hunts', name: data[0].hunt_name});
       }
     })
   };
@@ -31,7 +30,7 @@ export default class ReviewHunt extends React.Component {
       url: '/api/hunts',
       datatype: 'jsonp',
       success: data => {
-        this.setState({data: data, page: 'hunts', name: data[0].hunt_name, len: data.length-1});
+        this.setState({data: data, page: 'hunts', name: data[0].hunt_name});
       }
     })
   };

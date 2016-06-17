@@ -23,6 +23,10 @@
   margin: 15% 0;
 }
 
+.idgaf {
+  width: 80%;
+}
+
 .review-card {
   width: 75%;
 }
@@ -224,4 +228,8 @@ input {
 
 .profile-info {
   font-size: 1.6em;
+}
+
+a {
+  color: white;
 }
