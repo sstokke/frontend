@@ -3,6 +3,7 @@ import DocumentTitle from 'react-document-title';
 import { LoginForm } from 'react-stormpath';
 import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
 
+
 export default class Landing extends React.Component {
   render() {
     return (
