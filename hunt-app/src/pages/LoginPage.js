@@ -11,7 +11,7 @@ export default class LoginPage extends React.Component {
       <Row>
         <Row>
           <div>
-            <h2> Account Access </h2>
+            <h2> Start Your Adventure Here! </h2>
           </div>
         </Row>
         <Row>
