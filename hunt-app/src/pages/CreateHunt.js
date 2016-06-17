@@ -15,6 +15,22 @@ export default class CreateHunt extends React.Component {
     page: "CreateHunt"
   };
 
+  componentDidMount(){
+    console.log("component has mounted");
+    $.ajax({
+      type: 'GET',
+      url: '/api/hunts',
+      data: {
+        huntname: 'whatever'
+      },
+      datatype: 'jsonp',
+      success: data => {
+        this.setState({data: data, page: 'hunts', name: data[0].hunt_name});
+        console.log(this.state)
+      }
+    })
+  };
+
   onSubmit (e) {
     e.preventDefault();
     var huntInput = $('#huntForm').find('input[name="hunt_name"]').val();
