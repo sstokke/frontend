@@ -1,171 +1,56 @@
-var ContactForm = React.createClass({
-  propTypes: {
-    value: React.PropTypes.object.isRequired,
-    onChange: React.PropTypes.func.isRequired,
-    onSubmit: React.PropTypes.func.isRequired,
-  },
+var Form = require('react-formal')
+  , yup = require('yup')
 
-  onNameChange: function(e) {
-    this.props.onChange(Object.assign({}, this.props.value, {name: e.target.value}));
-  },
+// if we are using a different set of inputs
+// we can set some defaults once at the beginning
+Form.addInputTypes(
+  require('react-formal-inputs'))
 
-  onEmailChange: function(e) {
-    this.props.onChange(Object.assign({}, this.props.value, {email: e.target.value}));
-  },
+var defaultStr = yup.string().default('')
 
-  onDescriptionChange: function(e) {
-    this.props.onChange(Object.assign({}, this.props.value, {description: e.target.value}));
-  },
+var modelSchema = yup.object({
 
-  onSubmit: function(e) {
-    e.preventDefault();
-    this.props.onSubmit();
-  },
+    name: yup.object({
+      first: defaultStr.required('please enter a first name'),
+      last:  defaultStr.required('please enter a surname'),
+    }),
 
-  render: function() {
-    var errors = this.props.value.errors || {};
+    dateOfBirth: yup.date()
+      .max(new Date(), "You can't be born in the future!"),
 
-    return (
-      React.createElement('form', {onSubmit: this.onSubmit, className: 'ContactForm', noValidate: true},
-        React.createElement('input', {
-          type: 'text',
-          className: errors.name && 'ContactForm-error',
-          placeholder: 'Name (required)',
-          value: this.props.value.name,
-          onChange: this.onNameChange,
-        }),
-        React.createElement('input', {
-          type: 'email',
-          className: errors.email && 'ContactForm-error',
-          placeholder: 'Email (required)',
-          value: this.props.value.email,
-          onChange: this.onEmailChange,
-        }),
-        React.createElement('textarea', {
-          placeholder: 'Description',
-          value: this.props.value.description,
-          onChange: this.onDescriptionChange,
-        }),
-        React.createElement('button', {type: 'submit'}, "Add Contact")
-      )
-    );
-  },
-});
+    colorId: yup.number().nullable()
+      .required('Please select a color')
+  });
 
+var form = (
+  <Form
+    schema={modelSchema}
+    defaultValue={modelSchema.default()}
+  >
+    <div>
+      <label>Name</label>
 
-var ContactItem = React.createClass({
-  propTypes: {
-    name: React.PropTypes.string.isRequired,
-    email: React.PropTypes.string.isRequired,
-    description: React.PropTypes.string,
-  },
+      <Form.Field name='name.first' placeholder='First name'/>
+      <Form.Field name='name.last' placeholder='Surname'/>
 
-  render: function() {
-    return (
-      React.createElement('li', {className: 'ContactItem'},
-        React.createElement('h2', {className: 'ContactItem-name'}, this.props.name),
-        React.createElement('a', {className: 'ContactItem-email', href: 'mailto:'+this.props.email}, this.props.email),
-        React.createElement('div', {className: 'ContactItem-description'}, this.props.description)
-      )
-    );
-  },
-});
+      <Form.Message for={['name.first', 'name.last']}/>
+    </div>
 
+    <label>Date of Birth</label>
+    <Form.Field name='dateOfBirth'/>
+    <Form.Message for='dateOfBirth'/>
 
-var ContactView = React.createClass({
-  propTypes: {
-    contacts: React.PropTypes.array.isRequired,
-    newContact: React.PropTypes.object.isRequired,
-    onNewContactChange: React.PropTypes.func.isRequired,
-    onNewContactSubmit: React.PropTypes.func.isRequired,
-  },
+    <label>Favorite Color</label>
+    <Form.Field name='colorId' type='select'>
+      <option value={null}>Select a color...</option>
+      <option value={0}>Red</option>
+      <option value={1}>Yellow</option>
+      <option value={2}>Blue</option>
+      <option value={3}>other</option>
+    </Form.Field>
+    <Form.Message for='colorId'/>
 
-  render: function() {
-    var contactItemElements = this.props.contacts
-      .filter(function(contact) { return contact.email; })
-      .map(function(contact) { return React.createElement(ContactItem, contact); });
+  <Form.Button type='submit'>Submit</Form.Button>
+</Form>)
 
-    return (
-      React.createElement('div', {className: 'ContactView'},
-        React.createElement('h1', {className: 'ContactView-title'}, "Contacts"),
-        React.createElement('ul', {className: 'ContactView-list'}, contactItemElements),
-        React.createElement(ContactForm, {
-          value: this.props.newContact,
-          onChange: this.props.onNewContactChange,
-          onSubmit: this.props.onNewContactSubmit,
-        })
-      )
-    );
-  },
-});
-
-
-/*
- * Constants
- */
-
-
-var CONTACT_TEMPLATE = {name: "", email: "", description: "", errors: null};
-
-
-
-/*
- * Actions
- */
-
-
-function updateNewContact(contact) {
-  setState({ newContact: contact });
-}
-
-
-function submitNewContact() {
-  var contact = Object.assign({}, state.newContact, {key: state.contacts.length + 1, errors: {}});
-
-  if (!contact.name) {
-    contact.errors.name = ["Please enter your new contact's name"];
-  }
-  if (!/.+@.+\..+/.test(contact.email)) {
-    contact.errors.email = ["Please enter your new contact's email"];
-  }
-
-  setState(
-    Object.keys(contact.errors).length === 0
-    ? {
-        newContact: Object.assign({}, CONTACT_TEMPLATE),
-        contacts: state.contacts.slice(0).concat(contact),
-      }
-    : { newContact: contact }
-  );
-}
-
-
-/*
- * Model
- */
-
-
-// The app's complete current state
-var state = {};
-
-// Make the given changes to the state and perform any required housekeeping
-function setState(changes) {
-  Object.assign(state, changes);
-
-  ReactDOM.render(
-    React.createElement(ContactView, Object.assign({}, state, {
-      onNewContactChange: updateNewContact,
-      onNewContactSubmit: submitNewContact,
-    })),
-    document.getElementById('react-app')
-  );
-}
-
-// Set initial data
-setState({
-  contacts: [
-    {key: 1, name: "James K Nelson", email: "james@jamesknelson.com", description: "Front-end Unicorn"},
-    {key: 2, name: "Jim", email: "jim@example.com"},
-  ],
-  newContact: Object.assign({}, CONTACT_TEMPLATE),
-});
+React.render(form, mountNode);

@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var methodOverride = require('method-override');
 var morgan = require('morgan');
+var Form = require('react-formal');
+var yup = require('yup');
 
 var app = express();
 var compiler = webpack(config);
