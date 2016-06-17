@@ -213,3 +213,12 @@ input {
   font-weight: bold;
   color: #26A69A;
 }
+
+.profile-label {
+  color: #26A69A;
+  font-size: 1.6em;
+}
+
+.profile-info {
+  font-size: 1.6em;
+}
