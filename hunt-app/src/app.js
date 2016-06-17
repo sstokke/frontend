@@ -10,6 +10,7 @@ ReactStormpath.init();
 ReactDOM.render(
   <Router history={createHistory()}>
     <HomeRoute path='/' component={MasterPage}>
+    <IndexRoute component={Landing} />
     <LoginRoute path='/login' component={LoginPage} />
       <Route path='/createhunt' component={CreateHunt}>
         <Route path='/createclues' component={CreateClues} />
