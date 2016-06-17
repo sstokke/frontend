@@ -27,7 +27,7 @@ export default class InviteUsers extends React.Component {
           <Col m={6} s={12} class="auth-form">
             <Card>
               <h3> Send Invite </h3>
-              <h6 className={"invite-subhead"}> for {this.props.} </h6>
+              <h6 className={"invite-subhead"}> for insert hunt here </h6>
               <hr />
               <form id="inviteUser">
                 <Input m={12} label="Name" id="name" type="text"/>

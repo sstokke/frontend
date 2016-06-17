@@ -1,46 +1,85 @@
 import { default as React, Component } from "react";
-import { GoogleMap, Marker, SearchBox } from "react-google-maps";
+import { GoogleMap, Marker, SearchBox, Circle, InfoWindow } from "react-google-maps";
 import DocumentTitle from 'react-document-title';
-import {Button, Icon, Row, Input} from 'react-materialize';
+import {Button, Icon, Row, Input, } from 'react-materialize';
+import { default as canUseDOM,} from "can-use-dom";
+import { default as raf } from "raf";
 import { Link } from 'react-router';
 import { If, Then, Else } from 'react-if';
 
-// !!Need to retrieve Hunt ID and then update Hunt ID with clue data upon completion of form
+const geolocation = (
+  canUseDOM && navigator.geolocation || {
+    getCurrentPosition: (success, failure) => {
+      failure(`Your browser doesn't support geolocation.`);
+    },
+  }
+);
 
 export default class CreateClues extends Component {
   static inputStyle = {
-      "border": `1px solid transparent`,
-      "borderRadius": `1px`,
-      "boxShadow": `0 2px 6px rgba(0, 0, 0, 0.3)`,
-      "boxSizing": `border-box`,
-      "MozBoxSizing": `border-box`,
-      "fontSize": `14px`,
-      "height": `32px`,
-      "marginTop": `10px`,
-      "outline": `none`,
-      "padding": `0 12px`,
-      "textOverflow": `ellipses`,
-      "width": `400px`,
-      "background-color": `white`,
-    }
-
-    static mapCenter = {
-      lat: 47.598962,
-      lng: -122.333799,
-    }
+    "border": `1px solid transparent`,
+    "borderRadius": `1px`,
+    "boxShadow": `0 2px 6px rgba(0, 0, 0, 0.3)`,
+    "boxSizing": `border-box`,
+    "MozBoxSizing": `border-box`,
+    "fontSize": `14px`,
+    "height": `32px`,
+    "marginTop": `10px`,
+    "outline": `none`,
+    "padding": `0 12px`,
+    "textOverflow": `ellipses`,
+    "width": `400px`,
+    "background-color": `white`,
+  }
 
   state = {
     bounds: null,
-    center: CreateClues.mapCenter,
+    center: null,
+    content: null,
+    radius: 60,
     markers: [],
   }
 
+  componentDidMount() {
+    geolocation.getCurrentPosition((position) => {
+      this.setState({
+        center: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        },
+        content: `Your Current Location`,
+      });
+
+      this.setState({
+        bounds: this.refs.map.getBounds(),
+        center: this.refs.map.getCenter(),
+      });
+
+      const tick = () => {
+        this.setState({ radius: Math.max(this.state.radius - 20, 0) });
+
+        if (this.state.radius > 200) {
+          raf(tick);
+        }
+      };
+      raf(tick);
+    }, (reason) => {
+      this.setState({
+        center: {
+          lat: 60,
+          lng: 105,
+        },
+        content: `Error: The Geolocation service failed (${ reason }).`,
+      });
+    });
+  }
+
   handleBoundsChanged() {
-     this.setState({
-       bounds: this.refs.map.getBounds(),
-       center: this.refs.map.getCenter(),
-     });
-   }
+   this.setState({
+     bounds: this.refs.map.getBounds(),
+     center: this.refs.map.getCenter(),
+   });
+  }
 
    handlePlacesChanged() {
      const places = this.refs.searchBox.getPlaces();
@@ -74,25 +113,25 @@ export default class CreateClues extends Component {
      });
    }
 
-   addClue(e) {
+  addClue(e) {
      e.preventDefault();
-     console.log(this.state.bounds.H.H);
-     var boundLatLow = this.state.bounds.H.H;
-     var boundLatHigh = this.state.bounds.H.j;
-     var boundLngLow = this.state.bounds.j.j;
-     var boundLngHigh = this.state.bounds.j.H;
+     var boundLatLow = this.state.center.lat() + .00040;
+     var boundLatHigh = this.state.center.lat() - .00040;
+     var boundLngLow = this.state.center.lng() - .00040;
+     var boundLngHigh = this.state.center.lng() + .00040;
      var placeLat = this.state.center.lat();
      var placeLng = this.state.center.lng();
      this.state.markers = [];
      var location = $('#clueForm').find('input[name="location"]').val();
      var clue = $('#clueForm').find('input[name="clue"]').val();
-     var hunt_id = $('#clueForm').find('input[name="hunt_id"]').val();
+     var hunt_name = $('#clueForm').find('input[name="hunt_name"]').val();
+
      $.ajax({
        type: 'POST',
        url: '/api/clues',
        data: {
          clue: clue,
-         hunt_id: hunt_id,
+         hunt_name: hunt_name,
          location: location,
          boundLatLow: boundLatLow,
          boundLatHigh: boundLatHigh,
@@ -105,7 +144,7 @@ export default class CreateClues extends Component {
      $('#clue').val('');
      $('#location').val('');
      $('#searchBox').val('');
-   };
+   }
 
   render () {
     return (
@@ -120,7 +159,7 @@ export default class CreateClues extends Component {
           <div className={"col m10"}>
             <form id="clueForm">
               <div className={"row"}>
-                <input type="hidden" name="hunt_id" value="1"/>
+                <input type="hidden" name="hunt_name" value="1"/>
                 <label className={"col m6 labelsize"}> Clue #1
                   <input id="clue" type="text" name="clue"/>
                 </label>
@@ -146,10 +185,12 @@ export default class CreateClues extends Component {
               width: `100vw`
             },
           }}
-          defaultZoom={15}
+          defaultZoom={18}
+          // center={center}
           onBoundsChanged={::this.handleBoundsChanged}
           ref="map"
         >
+
           <SearchBox
             bounds={this.state.bounds}
             controlPosition={google.maps.ControlPosition.TOP_LEFT}
