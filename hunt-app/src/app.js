@@ -12,12 +12,12 @@ ReactDOM.render(
     <HomeRoute path='/' component={MasterPage}>
     <LoginRoute path='/login' component={LoginPage} />
       <Route path='/createhunt' component={CreateHunt} />
-      <Route path='/reviewhunt' component={ReviewHunt} />
-      <HomeRoute path='/profile' component={ProfilePage} />
-      <Route path='/register' component={RegistrationPage} />
-      <Route path='/createclues' component={CreateClues} />
+        <Route path='/reviewhunt/:huntname' component={ReviewHunt} />
+        <Route path='/createclues' component={CreateClues} />
+        <Route path='/inviteusers' component={InviteUsers} />
       <Route path='/userhunt' component={UserHunt} />
-      <Route path='/inviteusers' component={InviteUsers} />
+      <Route path='/profile' component={ProfilePage} />
+      <Route path='/register' component={RegistrationPage} />
     </HomeRoute>
   </Router>,
   document.getElementById('app-container')

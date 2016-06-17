@@ -5,11 +5,14 @@ import {Button, Icon, Row, Input, Col, Card, CardTitle, Navbar} from 'react-mate
 
 export default class ReviewHunt extends React.Component {
 
-
   state = {
     data: [{}],
     page: "",
     name: ""
+  };
+
+  componentDidMount () {
+    var id = this.props.params.id
   };
 
   getGeneral (e) {

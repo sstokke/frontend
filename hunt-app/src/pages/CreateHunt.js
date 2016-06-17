@@ -4,8 +4,16 @@ import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
 
 export default class CreateHunt extends React.Component {
 
+  state = {
+    huntName: ''
+  }
+
   onSubmit (e) {
     e.preventDefault();
+    var huntInput = $('#huntForm').find('input[name="hunt_name"]').val();
+    console.log("This is the huntInput variable:" + huntInput);
+    this.setState({huntName: huntInput});
+    console.log(this.state.huntName);
     $.ajax({
       type: 'POST',
       url: '/api/hunts',
@@ -20,8 +28,9 @@ export default class CreateHunt extends React.Component {
           <h2> Create a Scavenger Hunt </h2>
         </div>
         <Card>
+          { this.state.huntName }
           <h3>General Information</h3>
-          <form id="huntForm" onSubmit={this.onSubmit} method="post">
+          <form id="huntForm" onSubmit={this.onSubmit.bind(this)} method="post">
             <Col m={6} s={12}>
               <label> Hunt Name
                 <input type="text" name="hunt_name" />
@@ -44,7 +53,7 @@ export default class CreateHunt extends React.Component {
                 <input type="text" name="description"/>
               </label>
             </Col>
-            <button> Submit </button>
+            <button type="submit" className={"btn-large"}> Create Your Hunt! </button>
           </form>
         </Card>
       </Row>
