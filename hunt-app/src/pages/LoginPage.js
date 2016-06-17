@@ -35,7 +35,7 @@ export default class LoginPage extends React.Component {
               <h3> Sign Up </h3>
               <hr/>
               <form id="signup-form">
-                <Input m={12} label="First Name" />
+                <Input m={12} type="text" label="First Name" />
                 <Input m={12} type="email" label="Email" />
                 <Input m={12} type="password" label="Password" />
                 <div>

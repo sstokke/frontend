@@ -34,10 +34,11 @@ export default class CreateHunt extends React.Component {
     this.setState({page: 'InviteUsers'});
   };
 
-  onToReview (e) {
+    onToReview (e) {
     e.preventDefault();
     this.setState({page: 'ReviewHunt'});
   };
+
 
   render () {
     return (
@@ -86,7 +87,7 @@ export default class CreateHunt extends React.Component {
     </If>
     <If condition={ this.state.page === 'InviteUsers' }>
       <Then>
-        <InviteUsers bar={ this.onToReview.bind(this) }/>
+        <InviteUsers bar={ this.onToReview.bind(this) } asshat={ this.asshat }/>
       </Then>
     </If>
     <If condition={ this.state.page === 'ReviewHunt' }>
