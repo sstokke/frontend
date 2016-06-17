@@ -12,7 +12,7 @@ var morgan = require('morgan');
 
 var app = express();
 var compiler = webpack(config);
-var router = express.router();
+// var router = express.router();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
