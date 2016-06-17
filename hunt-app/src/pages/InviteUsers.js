@@ -12,12 +12,14 @@ export default class InviteUsers extends React.Component {
       url: '/api/invites',
       data: $('#inviteUser').serialize()
     });
+    var name = $('#inviteUser').find('input[name="name"]').val()
+    $('#userList').append("<div className={'invited'}>" + name + "</div>");
+
     $('#name').val('');
     $('#email').val('');
   };
 
   render () {
-    console.log('rendering');
     return (
       <Row>
         <div>
@@ -30,8 +32,8 @@ export default class InviteUsers extends React.Component {
               <h6 className={"invite-subhead"}> for "hunt name goes here" </h6>
               <hr />
               <form id="inviteUser">
-                <Input m={12} label="Name" id="name" type="text"/>
-                <Input m={12} label="Email" id="email" type="text" />
+                <Input m={12} label="Name" name="name" id="name" type="text"/>
+                <Input m={12} label="Email" name="email" id="email" type="text" />
 
                 <Col m={12}>
                   <label> RSVP By:
@@ -50,7 +52,8 @@ export default class InviteUsers extends React.Component {
           <Col m={6} s={12} class="auth-form">
             <Card>
               <h3> Invited Users </h3>
-              <hr />
+              <div id="userList"> </div>
+              <hr/>
 
             </Card>
           </Col>

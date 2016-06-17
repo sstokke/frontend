@@ -27,6 +27,7 @@
   width: 50%;
 }*/
 
+
 /*--- START PARALLAX general ---*/
 .parallax {
   background: url('/css/bkg2.png');
@@ -139,7 +140,7 @@
 
 /*--- End Invite Users Styles ---*/
 
-/*--- Begin Create Clues Styles ---*/
+/*--- Begin Create Clues/Users Styles ---*/
 
 .clue-container {
   margin-left: 1em;
@@ -153,4 +154,14 @@
 .move-down {
   margin-top: 1em;
   display: inline;
+}
+
+.clue-header {
+  font-style: italic;
+}
+
+.invited {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
 }
