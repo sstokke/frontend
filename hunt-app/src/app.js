@@ -18,6 +18,7 @@ ReactDOM.render(
         <Route path='/inviteusers' component={InviteUsers} />
         <Route path='/reviewhunt/:huntname' component={ReviewHunt} />
       </Route>
+      <LoginRoute path='/login' component={LoginPage} />
       <Route path='/profile' component={ProfilePage} />
       <Route path='/register' component={RegistrationPage} />
       <Route path='/userhunt' component={UserHunt} />

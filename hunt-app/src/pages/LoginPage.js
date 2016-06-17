@@ -8,7 +8,7 @@ export default class LoginPage extends React.Component {
 
   render() {
     return (
-      <Row>
+      <Row className="parallax2">
         <Row>
           <div>
             <h2> Start Your Adventure Here! </h2>
