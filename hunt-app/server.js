@@ -41,7 +41,6 @@ app.get('/api/hunts', function(req, res) {
   })
 });
 
-
 app.param('huntname', function(req, res, next, huntname) {
   var query = Hunt.findOne({ hunt_name: huntname });
 
@@ -55,7 +54,6 @@ app.param('huntname', function(req, res, next, huntname) {
     return next();
   })
 })
-
 
 app.get('/api/hunts/:huntname', function(req, res) {
   console.log("this is the wildcard huntname call")

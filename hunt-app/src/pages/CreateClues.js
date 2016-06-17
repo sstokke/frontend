@@ -166,18 +166,17 @@ export default class CreateClues extends Component {
                 <label className={"col m6 labelsize"}> Clue
                   <input id="clue" type="text" name="clue"/>
                 </label>
-                <label className={"col m4 offset-m1"}> Answer/Location
+                <label className={"col m4 offset-m1 labelsize"}> Answer/Location
                   <input id="location" type="text" name="location" />
                 </label>
               </div>
               <div className={"row"}>
                 <button className={"btn invite-button"} onClick={this.addClue.bind(this)}> Add Clue </button>
-                <span> or </span>
-                  <button className={"btn invite-button"} onClick={this.props.foo}> On to Invites </button>
+                <button className={"btn invite-button"} onClick={this.props.foo}> On to Invites </button>
               </div>
             </form>
             <div className="row clue-header">
-              Your Clues
+              Track Your Clues
             </div>
             <div className="row">
               <div id="cluebox" className={"col m8"}> </div>

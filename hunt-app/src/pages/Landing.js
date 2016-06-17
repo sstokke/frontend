@@ -6,6 +6,7 @@ import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
 export default class Landing extends React.Component {
   render() {
     return (
+<<<<<<< HEAD
       <div>
         <div id="index-banner" className="parallax-container">
           <div className="parallax">
