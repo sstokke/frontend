@@ -4,6 +4,7 @@ import { LoginForm } from 'react-stormpath';
 import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
 import LoginPage from './LoginPage';
 
+
 export default class Landing extends React.Component {
   render() {
     return (
