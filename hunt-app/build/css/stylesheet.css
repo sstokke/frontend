@@ -207,3 +207,9 @@ input {
   color: #26A69A;
   font-weight: bold;
 }
+
+.invite-header {
+  font-size: 2em;
+  font-weight: bold;
+  color: #26A69A;
+}
