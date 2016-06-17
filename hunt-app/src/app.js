@@ -1,4 +1,4 @@
-import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage, CreateHunt, CreateClues, InviteUsers, ReviewHunt, UserHunt } from './pages';
+import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage, CreateHunt, CreateClues, InviteUsers, ReviewHunt, UserHunt, Landing } from './pages';
 import ReactStormpath, { Router, LoginRoute, HomeRoute, AuthenticatedRoute } from 'react-stormpath';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -16,6 +16,7 @@ ReactDOM.render(
         <Route path='/inviteusers' component={InviteUsers} />
         <Route path='/reviewhunt/:huntname' component={ReviewHunt} />
       </Route>
+      <Route path='/landing' component={Landing} />
       <Route path='/profile' component={ProfilePage} />
       <Route path='/register' component={RegistrationPage} />
       <Route path='/userhunt' component={UserHunt} />
