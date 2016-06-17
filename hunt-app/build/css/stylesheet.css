@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: 'Architects Daughter', cursive;
 }
 .navbar {
   background: black;
@@ -11,10 +12,9 @@
 .banner {
   text-align: center;
   font-size: 525%;
-  font-family: sans-serif;
+  font-family: 'Architects Daughter', cursive;
   color: black;
   font-weight: bold;
-  text-decoration: underline;
   text-transform: uppercase;
   letter-spacing: 3%;
   margin: 15% 0;
@@ -140,7 +140,8 @@
 
 /*--- End Invite Users Styles ---*/
 
-/*--- Begin Create Clues/Users Styles ---*/
+
+/*--- Begin Hunt/Clues/Users Styles ---*/
 
 .clue-container {
   margin-left: 1em;
@@ -158,10 +159,39 @@
 
 .clue-header {
   font-style: italic;
+  font-weight: bold;
+  font-decoration: underline;
+  font-size: 1.4em;
+}
+
+#cluebox {
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#answerbox {
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+#hunt-label {
+  font-size: 1.2em;
+}
+
+input {
+  color: black;
+  font-weight: bold;
 }
 
 .invited {
   font-size: 14px;
   font-style: italic;
+  font-weight: bold;
+}
+
+.labelsize {
+  font-size: 1.4em;
+  color: #26A69A;
   font-weight: bold;
 }

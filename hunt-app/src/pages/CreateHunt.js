@@ -53,24 +53,24 @@ export default class CreateHunt extends React.Component {
           <h3> General Information </h3>
           <form id="huntForm" onSubmit={this.onSubmit.bind(this)} method="post">
             <Col m={6} s={12}>
-              <label> Hunt Name
-                <input type="text" name="hunt_name" />
+              <label id="hunt-label"> Hunt Name
+                <input class="hunt-input" type="text" name="hunt_name" />
               </label>
-              <label> Start Time
+              <label id="hunt-label"> Start Time
                 <input type="time" name="start_time"/>
               </label>
-              <label> End Time
+              <label id="hunt-label"> End Time
                 <input type="time" name="end_time"/>
               </label>
             </Col>
             <Col m={6} s={12}>
-              <label> Hunt Date
-                <input type="date" name="date"/>
+              <label id="hunt-label"> Hunt Date
+                <input class="hunt-input" type="date" name="date"/>
               </label>
-              <label> Location
+              <label id="hunt-label"> Location
                 <input type="text" name="location"/>
               </label>
-              <label> Description
+              <label id="hunt-label"> Description
                 <input type="text" name="description"/>
               </label>
             </Col>
