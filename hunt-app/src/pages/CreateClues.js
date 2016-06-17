@@ -105,11 +105,9 @@ export default class CreateClues extends Component {
      $('#clue').val('');
      $('#location').val('');
      $('#searchBox').val('');
-<<<<<<< HEAD
-=======
+
 
    }
->>>>>>> 4073891dce9292745e5754bf78510e18b072a3a6
 
    };
 
