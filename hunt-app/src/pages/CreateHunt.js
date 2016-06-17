@@ -11,24 +11,8 @@ import { If, Then, Else } from 'react-if';
 export default class CreateHunt extends React.Component {
 
   state = {
-    huntName: 'fake',
+    huntName: 'sample',
     page: "CreateHunt"
-  };
-
-  componentDidMount(){
-    console.log("component has mounted");
-    $.ajax({
-      type: 'GET',
-      url: '/api/hunts',
-      data: {
-        huntname: 'whatever'
-      },
-      datatype: 'jsonp',
-      success: data => {
-        this.setState({data: data, page: 'hunts', name: data[0].hunt_name});
-        console.log(this.state)
-      }
-    })
   };
 
   onSubmit (e) {
@@ -57,7 +41,6 @@ export default class CreateHunt extends React.Component {
 
 
   render () {
-    var asshat = this.state.huntName;
     return (
       <div>
       <If condition={ this.state.page === 'CreateHunt' }>
@@ -76,16 +59,16 @@ export default class CreateHunt extends React.Component {
               <label> Start Time
                 <input type="time" name="start_time"/>
               </label>
-              <label> Location
-                <input type="text" name="location"/>
+              <label> End Time
+                <input type="time" name="end_time"/>
               </label>
             </Col>
             <Col m={6} s={12}>
               <label> Hunt Date
                 <input type="date" name="date"/>
               </label>
-              <label> End Time
-                <input type="time" name="end_time"/>
+              <label> Location
+                <input type="text" name="location"/>
               </label>
               <label> Description
                 <input type="text" name="description"/>

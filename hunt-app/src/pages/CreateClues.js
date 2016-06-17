@@ -37,7 +37,7 @@ export default class CreateClues extends Component {
     center: null,
     content: null,
     radius: 60,
-    markers: [],
+    markers: []
   }
 
   componentDidMount() {
@@ -126,6 +126,9 @@ export default class CreateClues extends Component {
      var clue = $('#clueForm').find('input[name="clue"]').val();
      var hunt_name = $('#clueForm').find('input[name="hunt_name"]').val();
 
+     $('#cluebox').append("<div>" + clue + "</div>");
+     $('#answerbox').append("<div>" + location + "</div>");
+
      $.ajax({
        type: 'POST',
        url: '/api/clues',
@@ -160,7 +163,7 @@ export default class CreateClues extends Component {
             <form id="clueForm">
               <div className={"row"}>
                 <input type="hidden" name="hunt_name" value="1"/>
-                <label className={"col m6 labelsize"}> Clue #1
+                <label className={"col m6 labelsize"}> Clue
                   <input id="clue" type="text" name="clue"/>
                 </label>
                 <label className={"col m4 offset-m1"}> Answer/Location
@@ -173,6 +176,13 @@ export default class CreateClues extends Component {
                   <button className={"btn invite-button"} onClick={this.props.foo}> On to Invites </button>
               </div>
             </form>
+            <div className="row clue-header">
+              Your Clues
+            </div>
+            <div className="row">
+              <div id="cluebox" className={"col m8"}> </div>
+              <div id="answerbox" className={"col m3"}> </div>
+            </div>
           </div>
         </div>
 
