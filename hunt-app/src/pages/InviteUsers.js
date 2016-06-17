@@ -1,6 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router';
+import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
 
 export default class InviteUsers extends React.Component {
 
@@ -16,43 +17,45 @@ export default class InviteUsers extends React.Component {
   };
 
   render () {
+    console.log('rendering');
     return (
-      <div className={"row"}>
+      <Row>
         <div>
-          <h4 className={"red-text"}> Invite Users </h4>
-          <h6 className={"invite-subhead"}> for "hunt name goes here" </h6>
+          <h2> Invites </h2>
         </div>
-        <div className={"row"}>
-          <form id="inviteUser">
-            <input type="hidden" name="hunt_id" value="1"/>
-            <div className={"row"}>
-              <div className={"col m3"}>
-                <label> RSVP By:
-                  <input id="rsvp_by" type="date" name="rsvp_by"/>
-                </label>
-              </div>
-            </div>
-            <div className={"col m3"}>
-              <label> Name
-                <input id="name" type="text" name="name"/>
-              </label>
-            </div>
-            <div className={"col m3 md-offset-1"}>
-              <label> Email
-                <input id="email" type="email" name="email"/>
-              </label>
-            </div>
-            <div>
-              <button className={"btn invite-button"} onClick={this.inviteUser}> Invite User </button>
-              <span className={"push-down"}> or </span>
-              <Link to='/reviewhunt'>
-                <button className={"btn invite-button"}> Return to Hunt Page </button>
-              </Link>
-            </div>
-          </form>
-        </div>
-        <h3> Invited Users </h3>
-      </div>
+        <Row>
+          <Col m={6} s={12} class="auth-form">
+            <Card>
+              <h3> Send Invite </h3>
+              <h6 className={"invite-subhead"}> for "hunt name goes here" </h6>
+              <hr />
+              <form id="inviteUser">
+                <Input m={12} label="Name" id="name" type="text"/>
+                <Input m={12} label="Email" id="email" type="text" />
+
+                <Col m={12}>
+                  <label> RSVP By:
+                    <input id="rsvp_by" type="date" name="rsvp_by" />
+                  </label>
+                </Col>
+                <div>
+                  <button className={"btn invite-button"} onClick={this.inviteUser}> Invite User </button>
+                  <span className={"push-down"}> or </span>
+                    <button onClick={this.props.bar} className={"btn invite-button"}> Return to Hunt Page </button>
+                </div>
+              </form>
+            </Card>
+          </Col>
+
+          <Col m={6} s={12} class="auth-form">
+            <Card>
+              <h3> Invited Users </h3>
+              <hr />
+
+            </Card>
+          </Col>
+        </Row>
+      </Row>
     )
   };
 }

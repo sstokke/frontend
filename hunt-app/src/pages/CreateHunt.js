@@ -1,12 +1,19 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
+import { GoogleMap, Marker, SearchBox } from "react-google-maps";
+import CreateClues from './CreateClues';
+import InviteUsers from './InviteUsers';
+import ReviewHunt from './ReviewHunt';
+import { If, Then, Else } from 'react-if';
+
 
 export default class CreateHunt extends React.Component {
 
   state = {
-    huntName: ''
-  }
+    huntName: '',
+    page: "CreateHunt"
+  };
 
   onSubmit (e) {
     e.preventDefault();
@@ -19,17 +26,30 @@ export default class CreateHunt extends React.Component {
       url: '/api/hunts',
       data: $('#huntForm').serialize()
     });
+    this.setState({page: "CreateClues"})
+  };
+
+  onToInvites (e) {
+    e.preventDefault();
+    this.setState({page: 'InviteUsers'});
+  };
+
+  onToReview (e) {
+    e.preventDefault();
+    this.setState({page: 'ReviewHunt'});
   };
 
   render () {
     return (
+      <div>
+      <If condition={ this.state.page === 'CreateHunt' }>
+        <Then>
       <Row>
         <div>
           <h2> Create a Scavenger Hunt </h2>
         </div>
         <Card>
-          { this.state.huntName }
-          <h3>General Information</h3>
+          <h3> General Information </h3>
           <form id="huntForm" onSubmit={this.onSubmit.bind(this)} method="post">
             <Col m={6} s={12}>
               <label> Hunt Name
@@ -56,7 +76,25 @@ export default class CreateHunt extends React.Component {
             <button type="submit" className={"btn-large"}> Create Your Hunt! </button>
           </form>
         </Card>
-      </Row>
+        </Row>
+      </Then>
+    </If>
+    <If condition={ this.state.page === 'CreateClues' }>
+      <Then>
+        <CreateClues foo={ this.onToInvites.bind(this) }/>
+      </Then>
+    </If>
+    <If condition={ this.state.page === 'InviteUsers' }>
+      <Then>
+        <InviteUsers bar={ this.onToReview.bind(this) }/>
+      </Then>
+    </If>
+    <If condition={ this.state.page === 'ReviewHunt' }>
+      <Then>
+        <ReviewHunt />
+      </Then>
+    </If>
+    </div>
     )
   };
 }
