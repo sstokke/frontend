@@ -8,7 +8,6 @@ import { Link } from 'react-router';
 export default class LoginPage extends React.Component {
   onFormSubmit(e, next) {
        var data = e.data;
-
       // Require passwords to be at least 10 characters.
       if (data.password.length < 10) {
         return next(new Error('Password must be at least 10 characters long.'));
@@ -19,8 +18,6 @@ export default class LoginPage extends React.Component {
 
       next(null, data);
     }
-
-
 
   render() {
     return (
@@ -59,7 +56,6 @@ export default class LoginPage extends React.Component {
             </Card>
           </Col>
         </Row>
-      </Row>
-    );
+      );
+    }
   }
-}
