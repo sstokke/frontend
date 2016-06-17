@@ -105,13 +105,9 @@ export default class CreateClues extends Component {
      $('#clue').val('');
      $('#location').val('');
      $('#searchBox').val('');
-
-
-   }
-
    };
 
-  render() {
+  render () {
     return (
       <div>
         <div className={"row"}>
