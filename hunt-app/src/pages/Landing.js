@@ -3,6 +3,8 @@ import DocumentTitle from 'react-document-title';
 import { LoginForm } from 'react-stormpath';
 import {Button, Icon, Row, Input, Col, Card} from 'react-materialize';
 import LoginPage from './LoginPage';
+import Form from 'react-formal';
+import yup from 'yup'
 
 
 export default class Landing extends React.Component {
