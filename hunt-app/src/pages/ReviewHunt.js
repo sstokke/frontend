@@ -123,7 +123,7 @@ export default class ReviewHunt extends React.Component {
             <If condition={ this.state.page === 'invites' }>
               <Then>
                 <Card className='large'
-                  header={<CardTitle image='/css/ladies.jpg'>{this.state.name}</CardTitle>}
+                  header={<CardTitle image='/css/ladies.jpeg'>{this.state.name}</CardTitle>}
                   actions={[<a href='#'>Edit Invites</a>]}>
                   <div>Date: {this.state.data[0].date} </div>
                   <div>Starting Time: {this.state.data[0].start_time} </div>
