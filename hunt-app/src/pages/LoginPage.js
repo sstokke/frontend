@@ -21,12 +21,12 @@ export default class LoginPage extends React.Component {
 
   render() {
     return (
+      <div>
       <Row className="parallax2">
-        <Row>
           <div>
             <h2> Start Your Adventure Here! </h2>
           </div>
-        </Row>
+      </Row>
         <Row>
           <Col m={6} s={12} class="auth-form">
             <Card>
@@ -56,7 +56,7 @@ export default class LoginPage extends React.Component {
             </Card>
           </Col>
         </Row>
-        </Row>
+        </div>
       );
     }
   }

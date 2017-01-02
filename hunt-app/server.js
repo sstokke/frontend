@@ -97,8 +97,6 @@ app.get('/api/clues', function(req, res) {
 });
 
 app.post('/api/clues', function(req, res, next) {
-  console.log("This is logging a POST to Clues" + req.body);
-  var hunt_id = req.body.hunt_id;
   var clue = req.body.clue;
   var location = req.body.location;
   var boundLngHigh = req.body.boundLngHigh;
@@ -109,7 +107,6 @@ app.post('/api/clues', function(req, res, next) {
   var placeLng = req.body.placeLng;
 
   db.collections.clues.insert({
-    hunt_id: hunt_id,
     clue: clue,
     location: location,
     boundLngHigh: boundLngHigh,
@@ -118,14 +115,6 @@ app.post('/api/clues', function(req, res, next) {
     boundLatLow: boundLatLow,
     placeLat: placeLat,
     placeLng: placeLng
-  })
-});
-
-app.get('/api/invites', function(req, res) {
-  Invite.find(function(err, invites) {
-    if (err) { next(err); }
-
-    res.json(invites);
   })
 });
 
@@ -143,6 +132,15 @@ app.post('/api/invites', function(req, res, next) {
     rsvp_by: rsvp_by
   })
 });
+
+app.get('/api/invites', function(req, res) {
+  Invite.find(function(err, invites) {
+    if (err) { next(err); }
+
+    res.json(invites);
+  })
+});
+
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,

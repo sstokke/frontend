@@ -2,7 +2,7 @@ import { default as React, Component } from "react";
 import { GoogleMap, Marker, SearchBox, Circle, InfoWindow } from "react-google-maps";
 import DocumentTitle from 'react-document-title';
 import {Button, Icon, Row, Input, Col, Preloader, Card} from 'react-materialize';
-import { default as canUseDOM,} from "can-use-dom";
+import { default as canUseDOM} from "can-use-dom";
 import { default as raf } from "raf";
 import ToggleDisplay from 'react-toggle-display';
 

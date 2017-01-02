@@ -115,6 +115,7 @@ export default class CreateClues extends Component {
 
   addClue(e) {
      e.preventDefault();
+
      var boundLatLow = this.state.center.lat() + .00040;
      var boundLatHigh = this.state.center.lat() - .00040;
      var boundLngLow = this.state.center.lng() - .00040;
@@ -129,21 +130,24 @@ export default class CreateClues extends Component {
      $('#cluebox').append("<div>" + clue + "</div>");
      $('#answerbox').append("<div>" + location + "</div>");
 
+     var clueData = {
+       clue: clue,
+       location: location,
+       boundLngHigh: boundLngHigh,
+       boundLngLow: boundLngLow,
+       boundLatHigh: boundLatHigh,
+       boundLatLow: boundLatLow,
+       placeLat: placeLat,
+       placeLng: placeLng
+     };
+
      $.ajax({
        type: 'POST',
        url: '/api/clues',
-       data: {
-         clue: clue,
-         hunt_name: hunt_name,
-         location: location,
-         boundLatLow: boundLatLow,
-         boundLatHigh: boundLatHigh,
-         boundLngLow: boundLngLow,
-         boundLngHigh: boundLngHigh,
-         placeLat: placeLat,
-         placeLng: placeLng
-       }
+       dataType: 'JSON',
+       data: clueData
      });
+     console.log(clueData);
      $('#clue').val('');
      $('#location').val('');
      $('#searchBox').val('');
